@@ -1,6 +1,6 @@
 const axios = require("axios");
-const { errorHandler } = require("./utils/error-handler.js");
-const { calculateResult } = require("./utils/calculate-result.js");
+const errorHandler = require("./utils/error-handler.js");
+const calculateResult = require("./utils/calculate-result.js");
 
 const VERSION = 'v1'
 const URL = `https://interview.adpeai.com/api/${VERSION}`
