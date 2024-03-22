@@ -1,27 +1,15 @@
-import express from "express";
-import axios from "axios"
+const express = require("express");
+const { getTask, submitTask } = require("./controller.js");
+const { Routes } = require("./utils/routes.js");
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my server!');
-});
+app.use(bodyParser.json());
 
-app.get('/task', async (req, res) => {
-
-    const VERSION = 'v1'
-    const URL = `https://interview.adpeai.com/api/${VERSION}`
-
-
-    try {
-        const response = await axios.get(`${URL}/get-task`);
-        res.json(response.data);
-    } catch (error) {
-        console.error('Erro ao chamar a API externa:', error);
-        res.status(500).json({ error: 'Erro ao chamar a API externa' });
-    }
-});
+app.get(Routes.GET_TASK, async (req, res) => getTask(req, res));
+app.post(Routes.SUBMIT_TASK, async (req, res) => submitTask(req, res));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
