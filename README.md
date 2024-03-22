@@ -22,5 +22,9 @@ npm test
 
 To check the coverage
 ```
-npm coverage 
+npm run coverage 
 ```
+
+### Todo List
+- Add integration test with supertest
+- Add loop to send the multiple requests
