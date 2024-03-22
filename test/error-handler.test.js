@@ -1,4 +1,4 @@
-const errorHandler = require('./error-handler');
+const errorHandler = require('../src/utils/error-handler');
 
 describe('error-handler', () => {
     it('should return error message for status 404', () => {

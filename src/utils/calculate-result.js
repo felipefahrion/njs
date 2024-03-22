@@ -1,4 +1,4 @@
-module.exports = function calculateResult(operation, right, left) {
+module.exports = function calculateResult(operation, left, right) {
     switch (operation) {
         case 'addition':
             return left + right;
